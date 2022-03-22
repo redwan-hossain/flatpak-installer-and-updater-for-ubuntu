@@ -9,6 +9,7 @@ if [[ "$(grep -iR flatpak/stable /etc/apt)" = "" ]]; then
   echo " PPA missing so adding it"
   sudo add-apt-repository ppa:flatpak/stable -y
   sudo apt update
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
   clear
 elif [[ "$(grep -iR flatpak/stable /etc/apt)" != "" ]]; then
   echo "PPA already added"
